@@ -1,0 +1,329 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 5,
+    "pending": 0,
+    "failures": 4,
+    "start": "2023-09-25T08:47:03.807Z",
+    "end": "2023-09-25T08:47:08.653Z",
+    "duration": 4846,
+    "testsRegistered": 9,
+    "passPercent": 55.55555555555556,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aff1713b-278e-4d9e-9cb5-09ef0ce8900d",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a37fc6aa-1835-4ded-939a-8e3256f43591",
+          "title": "users",
+          "fullFile": "/home/unthinkable-lap/Desktop/API/test/delete.js",
+          "file": "/test/delete.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should delete the user",
+              "fullTitle": "users should delete the user",
+              "timedOut": false,
+              "duration": 451,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.delete(`2`).end((err, res) => {\n    if (err) {\n        console.log(err)\n        return done(err)\n    }\n    else if (res.body) {\n        console.log(res.body);\n        expect(res.status).to.equal(204);\n    }\n    else {\n        console.log('res.body undefined');\n        expect(res.body).to.exist;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "25a84b1c-c0fe-48a9-b00e-1e7680e2ad58",
+              "parentUUID": "a37fc6aa-1835-4ded-939a-8e3256f43591",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "25a84b1c-c0fe-48a9-b00e-1e7680e2ad58"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 451,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "3b4bd3a9-70c0-4bb8-b1d2-e2a156a8223d",
+          "title": "GET /api/users?page=2",
+          "fullFile": "/home/unthinkable-lap/Desktop/API/test/get.js",
+          "file": "/test/get.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get user details",
+              "fullTitle": "GET /api/users?page=2 should get user details",
+              "timedOut": false,
+              "duration": 0,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const userId = 2;\nrequest(baseUrl)\n  .get(`/api/users/${userId}`)\n  .expect('Content-Type', /json/)\n  .expect(200)\n  .end(function (err, res) {\n    if (err) return done(err);\n    expect(res.body).to.be.an('object');\n    done();\n  });",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'address')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'address')\n    at Test.serverAddress (node_modules/supertest/lib/test.js:46:22)\n    at new Test (node_modules/supertest/lib/test.js:34:14)\n    at obj.<computed> [as get] (node_modules/supertest/index.js:43:18)\n    at Context.<anonymous> (test/get.js:14:8)\n    at process.processImmediate (node:internal/timers:476:21)",
+                "diff": null
+              },
+              "uuid": "4a9c5924-1bd4-4692-b50d-5273fa60496a",
+              "parentUUID": "3b4bd3a9-70c0-4bb8-b1d2-e2a156a8223d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "get the list of the users",
+              "fullTitle": "GET /api/users?page=2 get the list of the users",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n  .get(`/api/users?page=2`)\n  .set('Accept', 'application/json')\n  .end(function (err, res) {\n    if (err) return done(err);\n    expect(res.status).to.equal(200);\n    done();\n  });",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'address')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'address')\n    at Test.serverAddress (node_modules/supertest/lib/test.js:46:22)\n    at new Test (node_modules/supertest/lib/test.js:34:14)\n    at obj.<computed> [as get] (node_modules/supertest/index.js:43:18)\n    at Context.<anonymous> (test/get.js:31:8)\n    at process.processImmediate (node:internal/timers:476:21)",
+                "diff": null
+              },
+              "uuid": "98cd67fc-a04d-4401-b21a-30af22ff1b79",
+              "parentUUID": "3b4bd3a9-70c0-4bb8-b1d2-e2a156a8223d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4a9c5924-1bd4-4692-b50d-5273fa60496a",
+            "98cd67fc-a04d-4401-b21a-30af22ff1b79"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "ef199e32-6bbb-443d-ad5f-1a7b2590c20d",
+          "title": "users",
+          "fullFile": "/home/unthinkable-lap/Desktop/API/test/post.js",
+          "file": "/test/post.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET ON USERS",
+              "fullTitle": "users GET ON USERS",
+              "timedOut": false,
+              "duration": 568,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(`users?access-token=${token}`).end((err, res) => {\n    if (err) {\n        done(err);\n    }\n    else if (res.body) {\n        expect(res.body).to.not.be.empty;\n    }\n    else {\n        console.log('res.body is undefined');\n        expect(res.body).to.exist;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "f5680ed6-168d-47ba-9b1f-7ca5b2ff597e",
+              "parentUUID": "ef199e32-6bbb-443d-ad5f-1a7b2590c20d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "/Users/Id",
+              "fullTitle": "users /Users/Id",
+              "timedOut": false,
+              "duration": 651,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "request.get(`posts?access-token=${token}`).end((err, res) => {\n    if (err) {\n        done(err)\n    }\n    else if (res.body) {\n        expect(res.body[1].id).to.equal(69975);\n    }\n    else {\n        console.log('users body empty');\n        expect(res.body).to.exist;\n    }\n    done();\n})",
+              "err": {
+                "message": "AssertionError: expected 71006 to equal 69975",
+                "estack": "AssertionError: expected 71006 to equal 69975\n    at Test.<anonymous> (test/post.js:59:43)\n    at Test.assert (node_modules/supertest/lib/test.js:172:8)\n    at localAssert (node_modules/supertest/lib/test.js:120:14)\n    at /home/unthinkable-lap/Desktop/API/node_modules/supertest/lib/test.js:125:7\n    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)\n    at /home/unthinkable-lap/Desktop/API/node_modules/superagent/lib/node/index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/parsers/json.js:21:7)\n    at Stream.emit (node:events:513:28)\n    at Unzip.<anonymous> (node_modules/superagent/lib/node/unzip.js:54:12)\n    at Unzip.emit (node:events:513:28)\n    at endReadableNT (node:internal/streams/readable:1359:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                "diff": "- 71006\n+ 69975\n"
+              },
+              "uuid": "b7345623-b708-4e5f-805e-2764122ea85e",
+              "parentUUID": "ef199e32-6bbb-443d-ad5f-1a7b2590c20d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "/users/id/title of the post",
+              "fullTitle": "users /users/id/title of the post",
+              "timedOut": false,
+              "duration": 601,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "request.get(`/posts?access-token=${token}`).end((err, res) => {\n    if (err) {\n        done(err)\n    }\n    else if (res.body) {\n        expect(res.body[1].title).to.equal('Carpo adiuvo bestia talis conatus talio odio sapiente alii.')\n    }\n    else{\n        console.log('Title Not Matched');\n        expect(res.body).to.exist;\n    }\n    done();\n})",
+              "err": {
+                "message": "AssertionError: expected 'Tot tandem vulariter tergo vinitor cr…' to equal 'Carpo adiuvo bestia talis conatus tal…'",
+                "estack": "AssertionError: expected 'Tot tandem vulariter tergo vinitor cr…' to equal 'Carpo adiuvo bestia talis conatus tal…'\n    at Test.<anonymous> (test/post.js:78:46)\n    at Test.assert (node_modules/supertest/lib/test.js:172:8)\n    at localAssert (node_modules/supertest/lib/test.js:120:14)\n    at /home/unthinkable-lap/Desktop/API/node_modules/supertest/lib/test.js:125:7\n    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)\n    at /home/unthinkable-lap/Desktop/API/node_modules/superagent/lib/node/index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/parsers/json.js:21:7)\n    at Stream.emit (node:events:513:28)\n    at Unzip.<anonymous> (node_modules/superagent/lib/node/unzip.js:54:12)\n    at Unzip.emit (node:events:513:28)\n    at endReadableNT (node:internal/streams/readable:1359:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                "diff": "- Tot tandem vulariter tergo vinitor crux.\n+ Carpo adiuvo bestia talis conatus talio odio sapiente alii.\n"
+              },
+              "uuid": "7cbcf82e-71bf-44e4-a1ab-efeb158c75a0",
+              "parentUUID": "ef199e32-6bbb-443d-ad5f-1a7b2590c20d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST API",
+              "fullTitle": "users POST API",
+              "timedOut": false,
+              "duration": 613,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data={\n    \"email\": randomEmailGenerator(),\n    \"name\": \"p singh\",\n    \"gender\" : \"male\",\n    \"status\": \"active\"\n    };\nrequest.post(`users?access-token=${token}`).send(data).end((err, res) => {\n    if (err) {\n        return done(err);\n    }\n    else if (res.body) { \n        console.log(res.body.id);\n        expect(res.body.id).to.be.a('number');\n    }\n    else {\n        console.log('res.body is undefined');\n        console.log(\"res.body undefined\")\n        expect(res.body).to.exist;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "a5f9e8f7-babe-48f1-9a56-891a7d67fd3a",
+              "parentUUID": "ef199e32-6bbb-443d-ad5f-1a7b2590c20d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST API2",
+              "fullTitle": "users POST API2",
+              "timedOut": false,
+              "duration": 1554,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data={\n    \"email\": randomEmailGenerator(),\n    \"name\": \"p singh\",\n    \"gender\" : \"male\",\n    \"status\": \"active\"\n    };\nrequest.post(`users?access-token=${token}`).send(data).end((err, res) => {\n    if (err) {\n        console.log(err)\n        return done(err);\n    }\n    else if (res.body) { \n        console.log('in else if')\n        console.log(res.body);\n        expect(res.body).to.deep.include(data);\n    }\n    else {\n        console.log(\"in else\")\n        console.log(\"res.body undefined\")\n        expect(res.body).to.exist;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "ce940c9c-17a6-4538-9c65-5ee94221285b",
+              "parentUUID": "ef199e32-6bbb-443d-ad5f-1a7b2590c20d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f5680ed6-168d-47ba-9b1f-7ca5b2ff597e",
+            "a5f9e8f7-babe-48f1-9a56-891a7d67fd3a",
+            "ce940c9c-17a6-4538-9c65-5ee94221285b"
+          ],
+          "failures": [
+            "b7345623-b708-4e5f-805e-2764122ea85e",
+            "7cbcf82e-71bf-44e4-a1ab-efeb158c75a0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 3987,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "de7863dc-4364-4b48-8d8e-672b12b55ab2",
+          "title": "users",
+          "fullFile": "/home/unthinkable-lap/Desktop/API/test/put.js",
+          "file": "/test/put.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update the user",
+              "fullTitle": "users should update the user",
+              "timedOut": false,
+              "duration": 390,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data={\n    \"name\": \"morpheus\",\n    \"job\": \"zion resident\"\n}\nrequest.put(`2`).send(data).end((err,res)=>{\n    if(err){\n        console.log(err)\n        return done(err)\n    }\n    else if(res.body){\n        console.log(res.body);\n        expect(res.body).to.deep.include(data);\n    }\n    else{\n        console.log('res.body undefined');\n        expect(res.body).to.exist;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "7134e145-3f51-4d8d-8f8a-2af80c2d7874",
+              "parentUUID": "de7863dc-4364-4b48-8d8e-672b12b55ab2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7134e145-3f51-4d8d-8f8a-2af80c2d7874"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 390,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 5000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
